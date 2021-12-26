@@ -7,7 +7,7 @@ class DailyInput extends Component {
         return (
             <div>
                 <label htmlFor="fruit" className="form-label">Fruit</label>
-                <input min="0" max="3" type="range" className="form-range" id="fruit"></input>
+                <input min="0" max="3" step="0.5" type="range" className="form-range" id="fruit"></input>
             </div>
 
         )
