@@ -4,8 +4,7 @@
   "description": "Web App that helps tracking Dr Greger's Daily Dozen",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server.js",
+     "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
