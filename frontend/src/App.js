@@ -13,6 +13,7 @@ import Login from "./components/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/privates/Dashboard";
 
+
 if (localStorage.jwtToken) {
   const token = localStorage.jwtToken;
   setAuthToken(token);
@@ -24,8 +25,32 @@ if (localStorage.jwtToken) {
     window.location.href = "./login";
   }
 }
+
 class App extends Component {
+   
+  constructor(props) {
+    super(props)
+    this.handleUnload = this.handleUnload.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('beforeunload', this.handleUnload);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('beforeunload', this.handleUnload);
+  }
+
+  handleUnload(e) {
+    var message = "\o/";
+
+    (e || window.event).returnValue = message; //Gecko + IE
+    return message;
+  }
+
+  
   render() {
+
     return (
       <Provider store={store}>
         <Router>
