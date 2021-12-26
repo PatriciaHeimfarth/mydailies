@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import Component from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import DailiesInput from "./DailiesInput";
 
 class Dashboard extends Component {
     onLogoutClick = e => {
@@ -16,9 +17,7 @@ class Dashboard extends Component {
                     <div>
                         <h4>
                             <b>{user.name.split(" ")[0]}</b>
-                            <p>
-                                Login successful!
-                            </p>
+                            <DailiesInput></DailiesInput>
                         </h4>
                         <button
                             style={{
