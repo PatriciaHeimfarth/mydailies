@@ -8,6 +8,7 @@ class DailiesInput extends Component {
             <div>
                 <h1>Dailies Input</h1>
                 <DailyInput maxAmount="3" type="Fruit"></DailyInput>
+                <DailyInput maxAmount="1" type="Berries"></DailyInput>
             </div>
 
         )
