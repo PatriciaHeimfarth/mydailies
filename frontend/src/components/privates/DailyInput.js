@@ -17,10 +17,10 @@ class DailyInput extends Component {
 
         return (
             <div>
-                <div class="d-flex justify-content-center my-4">
+                <div className="d-flex justify-content-center my-4">
                     <label htmlFor="amountInput" className="form-label">Fruit</label>
-                    <input id="typeinp" type="range" min="0" max="3" step="0.5" defaultValue="3" onInput={this.onInput.bind(this)} />
-                    <output id="amount" name="amount" for="amountInput">0</output>
+                    <input id="typeinp" type="range" min="0" max="3" step="0.5" defaultValue="0" onInput={this.onInput.bind(this)} />
+                    <output id="amount" name="amount" htmlFor="amountInput">0</output>
                 </div>
             </div>
 
