@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 const DailySchema = new Schema({
   type: String,
-  date: Date,
   amount: Number,
-  userId: String
+   
 });
 
 const DailiesGroupSchema = new Schema({
-  name: String,
+  userId: String,
+  date: Date,
   dailies: [DailySchema]
 });
 
