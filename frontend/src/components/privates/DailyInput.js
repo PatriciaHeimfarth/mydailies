@@ -1,4 +1,7 @@
 import { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { setDailies } from "../../actions/dailiesActions";
 
 class DailyInput extends Component {
 
@@ -10,6 +13,18 @@ class DailyInput extends Component {
         })
         document.getElementById(this.props.type + "amount").value = currentVal;
         localStorage.setItem(this.getTypeWithCurrentDate(), currentVal);
+
+        this.props.setDailies({
+            "userId": "redux123",
+            "date": "2222-02-01T00:00:00.000Z",
+            "dailies": [{
+                "type": "fruit",
+
+                "amount": 3
+
+            }]
+
+        })
     }
 
     getTypeWithCurrentDate() {
@@ -34,4 +49,14 @@ class DailyInput extends Component {
     }
 
 }
-export default DailyInput;
+DailyInput.propTypes = {
+    dailies:  PropTypes.object.isRequired 
+};
+const mapStateToProps = state => ({
+    dailies: state.dailies
+});
+export default connect(
+    mapStateToProps,
+    {setDailies}
+    
+)(DailyInput);

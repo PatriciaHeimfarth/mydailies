@@ -46,9 +46,9 @@ class App extends Component {
 
   handleUnload(e) {
     var message = "\o/";
-
+    const { dailies } = this.props.dailies;
     (e || window.event).returnValue = message; //
-    let dailies = {
+   /* let dailies = {
       "userId": "redux",
       "date": "2222-02-01T00:00:00.000Z",
       "dailies": [{
@@ -58,13 +58,13 @@ class App extends Component {
 
       }]
 
-    }
-    console.log( this.props)
+    }*/
+ 
     this.props.storeDailies(dailies);
    
   }
   render() {
-
+    
     return (
         <Router>
           <div className="App">
@@ -83,12 +83,13 @@ class App extends Component {
 }
 App.propTypes = {
   storeDailies: PropTypes.func.isRequired,
-  
+  dailies:  PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
-  
+  dailies: state.dailies
 });
 export default connect(
   mapStateToProps,
   { storeDailies }
 )(App);
+ 
