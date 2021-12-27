@@ -5,7 +5,7 @@ const passport = require("passport");
 const app = express();
 
 const user = require("./routes/user");
-
+const dailies = require("./routes/dailies");
 
 app.use(
   bodyParser.urlencoded({
@@ -28,5 +28,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 app.use("/user", user);
 
+app.use("/dailies", dailies);
+ 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));

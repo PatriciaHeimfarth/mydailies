@@ -45,6 +45,7 @@ class App extends Component {
     var message = "\o/";
 
     (e || window.event).returnValue = message; //Gecko + IE
+    console.log("nmau")
     return message;
   }
 
