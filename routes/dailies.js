@@ -34,8 +34,9 @@ router.post("/read", (req, res) => {
             return res.status(404).json({ Notfound: "Not found" });
         }
 
-        console.log(dailies);
-    });
+        res.send(dailies)
+       
+    })
 
 });
 
