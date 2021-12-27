@@ -9,7 +9,7 @@ const DailySchema = new Schema({
 
 const DailiesGroupSchema = new Schema({
   userId: String,
-  date: Date,
+  date: Date, //2222-02-01T00:00:00.000Z
   dailies: [DailySchema]
 });
 
