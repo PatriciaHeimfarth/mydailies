@@ -46,7 +46,9 @@ class App extends Component {
 
   handleUnload(e) {
     var message = "\o/";
-    const { dailies } = this.props.dailies;
+    let dailies  = this.props.dailies;
+    dailies["userId"] = "zezeze"
+    dailies["date"] = "2222-02-01T00:00:00.000Z";
     (e || window.event).returnValue = message; //
    /* let dailies = {
       "userId": "redux",

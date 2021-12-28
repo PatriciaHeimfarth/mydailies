@@ -15,8 +15,7 @@ class DailyInput extends Component {
         localStorage.setItem(this.getTypeWithCurrentDate(), currentVal);
 
         this.props.setDailies({
-            "userId": "redux123",
-            "date": "2222-02-01T00:00:00.000Z",
+         
             "dailies": [{
                 "type": "fruit",
 
