@@ -11,10 +11,10 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/privates/Dashboard";
-import { storeDailies } from "./actions/dailiesActions";
+import { storeDailies, getDailies } from "./actions/dailiesActions";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {  withRouter } from "react-router-dom";
+ 
 
 
 if (localStorage.jwtToken) {
@@ -34,6 +34,8 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.handleUnload = this.handleUnload.bind(this);
+    let dailies = this.props.getDailies();
+    console.log(dailies, "HALLLLLLLOOO")
   }
 
   componentDidMount() {
@@ -85,6 +87,7 @@ class App extends Component {
 }
 App.propTypes = {
   storeDailies: PropTypes.func.isRequired,
+  getDailies:  PropTypes.func.isRequired,
   dailies:  PropTypes.object.isRequired
 };
 const mapStateToProps = state => ({
@@ -92,6 +95,6 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { storeDailies }
+  { storeDailies, getDailies }
 )(App);
  

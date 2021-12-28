@@ -1,7 +1,7 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { setDailies } from "../../actions/dailiesActions";
+import { addDaily } from "../../actions/dailiesActions";
 
 class DailyInput extends Component {
 
@@ -14,7 +14,7 @@ class DailyInput extends Component {
         document.getElementById(this.props.type + "amount").value = currentVal;
         localStorage.setItem(this.getTypeWithCurrentDate(), currentVal);
 
-        this.props.setDailies({
+        this.props.addDaily({
          
             "dailies": [{
                 "type": "fruit",
@@ -56,6 +56,6 @@ const mapStateToProps = state => ({
 });
 export default connect(
     mapStateToProps,
-    {setDailies}
+    {addDaily}
     
 )(DailyInput);

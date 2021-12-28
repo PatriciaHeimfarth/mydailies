@@ -17,9 +17,39 @@ export const storeDailies = (dailies) => dispatch => {
         );
 };
 
-export const setDailies = (dailies) => {
+
+export const getDailies = () => dispatch => {
+
+    let userData = {
+        userId
+            :
+            "zezeze",
+        "date"
+            :
+            "2222-02-01T00:00:00.000+00:00"
+    }
+    axios
+        .post("/dailies/read", userData)
+        .then(res => {
+
+            localStorage.setItem("dailies", res.data);
+            console.log("HALLO", res.data)
+            dispatch(setDailies(res.data));
+        })
+       //catch
+};
+
+export const setDailies = dailies => {
+    return {
+      type: SET_CURRENT_DAILIES,
+      payload: dailies
+    };
+  };
+
+export const addDaily = (daily) => {
+
     return {
         type: SET_CURRENT_DAILIES,
-        payload: dailies
+        payload: daily
     };
 };
