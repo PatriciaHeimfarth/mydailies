@@ -31,9 +31,6 @@ export const getDailies = () => dispatch => {
     axios
         .post("/dailies/read", userData)
         .then(res => {
-
-            localStorage.setItem("dailies", res.data);
-            console.log("HALLO", res.data)
             dispatch(setDailies(res.data));
         })
        //catch

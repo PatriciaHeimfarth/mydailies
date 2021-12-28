@@ -12,7 +12,7 @@ class DailyInput extends Component {
             value: currentVal
         })
         document.getElementById(this.props.type + "amount").value = currentVal;
-        localStorage.setItem(this.getTypeWithCurrentDate(), currentVal);
+   
 
         this.props.addDaily({
          
@@ -39,8 +39,8 @@ class DailyInput extends Component {
             <div>
                 <div className="d-flex justify-content-center my-4">
                     <label htmlFor={this.props.type} className="form-label">{this.props.type}</label>
-                    <input id={this.props.type} type="range" min="0" max={this.props.maxAmount} step="0.5" defaultValue={localStorage.getItem(this.getTypeWithCurrentDate()) || 0} onInput={this.onInput.bind(this)} />
-                    <output id={this.props.type + "amount"} name={this.props.type + "amount"} htmlFor={this.props.type}>{localStorage.getItem(this.getTypeWithCurrentDate()) || 0}</output>
+                    <input id={this.props.type} type="range" min="0" max={this.props.maxAmount} step="0.5" defaultValue={this.props.defaultAmount} onInput={this.onInput.bind(this)} />
+                    <output id={this.props.type + "amount"} name={this.props.type + "amount"} htmlFor={this.props.type}>{this.props.defaultAmount}</output>
                 </div>
             </div>
 
