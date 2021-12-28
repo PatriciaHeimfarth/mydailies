@@ -34,8 +34,7 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.handleUnload = this.handleUnload.bind(this);
-    let dailies = this.props.getDailies();
-    console.log(dailies, "HALLLLLLLOOO")
+    this.props.getDailies();
   }
 
   componentDidMount() {
@@ -48,8 +47,9 @@ class App extends Component {
 
   handleUnload(e) {
     var message = "\o/";
-    let dailies  = this.props.dailies;
-    dailies["userId"] = "zezeze"
+    let dailies  = {"dailies" : this.props.dailies.dailies.dailies } 
+    dailies.dailies.push({"type": "test", "amount": 7})
+    dailies["userId"] = "zezeze2"
     dailies["date"] = "2222-02-01T00:00:00.000Z";
     (e || window.event).returnValue = message; //
    /* let dailies = {
