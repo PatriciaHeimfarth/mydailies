@@ -1,18 +1,42 @@
-import {Component} from "react";
+import { Component } from "react";
 import DailyInput from "./DailyInput";
+import { getDailies } from "../../actions/dailiesActions";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 class DailiesInput extends Component {
+    constructor(props) {
+        super(props)
+        this.props.getDailies();
+    }
+
+
     render() {
 
+        let dailies = { "dailies": this.props.dailies.dailies.dailies };
+        console.log(dailies)
         return (
             <div>
                 <h1>Dailies Input</h1>
-                <DailyInput maxAmount="3" type="Fruit" defaultAmount="1.5"></DailyInput>
-                <DailyInput maxAmount="1" type="Berries" defaultAmount="0.5"></DailyInput>
+                {dailies.dailies !== undefined? dailies.dailies.map(element => {
+                    return (<DailyInput maxAmount="3" type={element.type} defaultAmount={element.amount}></DailyInput>)
+
+                }) : <div></div>}
+
             </div>
 
         )
     }
 
 }
-export default DailiesInput;
+DailiesInput.propTypes = {
+    getDailies: PropTypes.func.isRequired,
+    dailies: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+    dailies: state.dailies
+});
+export default connect(
+    mapStateToProps,
+    { getDailies }
+)(DailiesInput);

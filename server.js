@@ -22,7 +22,7 @@ mongoose
     { useNewUrlParser: true }
   )
   .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
+  .catch(err => console.log(err.response.data));
 
 app.use(passport.initialize());
 require("./config/passport")(passport);

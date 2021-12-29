@@ -23,7 +23,7 @@ export const getDailies = () => dispatch => {
     let userData = {
         userId
             :
-            "zezeze",
+            "zezeze2",
         "date"
             :
             "2222-02-01T00:00:00.000+00:00"
@@ -33,7 +33,7 @@ export const getDailies = () => dispatch => {
         .then(res => {
             dispatch(setDailies(res.data));
         })
-       //catch
+       .catch(err => err.response.data)
 };
 
 export const setDailies = dailies => {
