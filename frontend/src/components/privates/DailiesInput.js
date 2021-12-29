@@ -12,16 +12,25 @@ class DailiesInput extends Component {
 
 
     render() {
+        const dailiesList = [
+            { "type": "Fruit", "maxAmount": 3 },
+            { "type": "Berries", "maxAmount": 1 },
+            { "type": "Sport", "maxAmount": 90 },
+        ]
 
         let dailies = { "dailies": this.props.dailies.dailies.dailies };
-        console.log(dailies)
+        dailiesList.forEach(d => {
+            let found = dailies.dailies.find(e => e.type === d.type);
+            found  ? d.amount = found.amount : found = found;
+        });
+       
         return (
             <div>
                 <h1>Dailies Input</h1>
-                {dailies.dailies !== undefined? dailies.dailies.map(element => {
-                    return (<DailyInput maxAmount="3" type={element.type} defaultAmount={element.amount}></DailyInput>)
+                {dailiesList.map(element => {
+                    return (<DailyInput maxAmount={element.maxAmount} type={element.type} defaultAmount={element.amount}></DailyInput>)
 
-                }) : <div></div>}
+                })}
 
             </div>
 
